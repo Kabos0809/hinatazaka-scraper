@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 def remove_blank(text):
     text = text.replace("\n", "")
-    text = text.replace(" ", "")
+    text = text.replace("[\u3000 \t]", "")
 
     return text
 
