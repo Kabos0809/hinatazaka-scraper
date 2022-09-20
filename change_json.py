@@ -1,6 +1,7 @@
 import binary_search
 import search_data
 import json
+import codecs
 import os
 from datetime import datetime
 
@@ -18,12 +19,12 @@ def event_write_json_file(events):
     path = './json/{}_{}_events.json'.format(today.year, today.month)
     try:
         if not os.path.isfile(path):
-            json_file = open(path, mode='w')
+            json_file = codecs.open(path, 'w', 'utf-8')
             json.dump(events, json_file)
 
             return
         else:
-            json_file = open(path, mode='r')
+            json_file = codecs.open(path, mode='r')
             json_data = json.loads(json_file)
 
             for data in json_data:
@@ -33,7 +34,7 @@ def event_write_json_file(events):
                     else:
                         i = binary_search.binary_search(json_data, event)
                         json_data.insert(i, event)
-            json_file = open(path, mode='w')
+            json_file = codecs.open(path, 'w', 'utf-8')
             json.dump(json_data, json_file)
             
             return
@@ -46,20 +47,20 @@ def count_media_write_json_file(events):
     path = './json/counts_json/{}_{}_counts.json'.format(today.year, today.month)
     try:
         if not os.path.isfile(path):
-            json_file = open(path, mode='w')
+            json_file = codecs.open(path, 'w', 'utf-8')
             for key in member_count.keys():
                 member_count[key] += search_data.count_appearance(key, 4, events)
-            json.dump(member_count, json_file)
+            json.dump(member_count, json_file, default=json_serial, ensure_ascii=False)
 
             return
         else:
-            json_file = open(path, mode='r')
+            json_file = codecs.open(path, mode='r')
             json_data = json.load(json_file)
             for key in member_count.keys():
                 member_count[key] += search_data.count_appearance(key, 4, events)
             save_data = [json_data, member_count]
-            json_file = open(path, mode='w')
-            json.dump(save_data, json_file)
+            json_file = codecs.open(path, 'w', 'utf-8')
+            json.dump(save_data, json_file, default=json_serial, ensure_ascii=False)
 
             return
     finally:
@@ -68,8 +69,8 @@ def count_media_write_json_file(events):
 def member_event_write_json_file(member, events):
     today = datetime.now()
     path = './json/member/{}_{}_{}_counts.json'.format(member, today.year, today.month)
-    json_file = open(path, mode='w')
-    json.dump(json_file, events, default=json_serial)
+    json_file = codecs.open(path, 'w', 'utf-8')
+    json.dump(events, json_file, default=json_serial, ensure_ascii=False)
 
     json_file.close()
 

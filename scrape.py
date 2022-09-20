@@ -46,7 +46,7 @@ def search_member(link):
         url = f"https://www.hinatazaka46.com{link}"
         result = requests.get(url)
         soup = BeautifulSoup(result.content, features="lxml")
-        member = soup.find("div", {"class":"c-article__tag"}).text.replace("メンバー", "")
+        member = remove_blank(soup.find("div", {"class":"c-article__tag"}).text.replace("メンバー", ""))
 
         time.sleep(3)
     except:
