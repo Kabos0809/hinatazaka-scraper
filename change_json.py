@@ -20,7 +20,7 @@ def event_write_json_file(events):
     try:
         if not os.path.isfile(path):
             json_file = codecs.open(path, 'w', 'utf-8')
-            json.dump(events, json_file)
+            json.dump(events, json_file, default=json_serial, ensure_ascii=False)
 
             return
         else:
@@ -35,7 +35,7 @@ def event_write_json_file(events):
                         i = binary_search.binary_search(json_data, event)
                         json_data.insert(i, event)
             json_file = codecs.open(path, 'w', 'utf-8')
-            json.dump(json_data, json_file)
+            json.dump(json_data, json_file, default=json_serial, ensure_ascii=False)
             
             return
     finally:
@@ -50,7 +50,7 @@ def count_media_write_json_file(events):
             json_file = codecs.open(path, 'w', 'utf-8')
             for key in member_count.keys():
                 member_count[key] += search_data.count_appearance(key, 4, events)
-            json.dump(member_count, json_file, default=json_serial, ensure_ascii=False)
+            json.dump(member_count, json_file, default=json_serial, ensure_ascii=False, indent=3)
 
             return
         else:
@@ -60,7 +60,7 @@ def count_media_write_json_file(events):
                 member_count[key] += search_data.count_appearance(key, 4, events)
             save_data = [json_data, member_count]
             json_file = codecs.open(path, 'w', 'utf-8')
-            json.dump(save_data, json_file, default=json_serial, ensure_ascii=False)
+            json.dump(save_data, json_file, default=json_serial, ensure_ascii=False, indent=3)
 
             return
     finally:
@@ -68,9 +68,9 @@ def count_media_write_json_file(events):
 
 def member_event_write_json_file(member, events):
     today = datetime.now()
-    path = './json/member/{}_{}_{}_counts.json'.format(member, today.year, today.month)
+    path = './json/member/{}_{}_{}_events.json'.format(member, today.year, today.month)
     json_file = codecs.open(path, 'w', 'utf-8')
-    json.dump(events, json_file, default=json_serial, ensure_ascii=False)
+    json.dump(events, json_file, default=json_serial, ensure_ascii=False, indent=3)
 
     json_file.close()
 

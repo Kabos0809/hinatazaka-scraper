@@ -7,6 +7,7 @@ from bs4 import BeautifulSoup
 def remove_blank(text):
     text = text.replace("\n", "")
     text = text.replace("[\u3000 \t]", "")
+    text = text.replace(" ", "")
 
     return text
 
@@ -17,7 +18,7 @@ def search_event(year, month):
     result = requests.get(url)
     soup = BeautifulSoup(result.content, features="lxml")
     events = soup.find_all("div", {"class": "p-schedule__list-group"})
-    time.sleep(3)
+    time.sleep(1)
 
     return events
 
@@ -48,7 +49,7 @@ def search_member(link):
         soup = BeautifulSoup(result.content, features="lxml")
         member = remove_blank(soup.find("div", {"class":"c-article__tag"}).text.replace("メンバー", ""))
 
-        time.sleep(3)
+        time.sleep(1)
     except:
         member = ""
 

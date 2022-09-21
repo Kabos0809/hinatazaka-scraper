@@ -13,12 +13,16 @@ def search_by_date(date, event_list):
     for event in event_list:
         if event['date'] == date:
             searched_event.append(event)
+    
+    return searched_event
 
 def search_by_category(category, event_list):
     serached_event = []
     for event in event_list:
         if event['category'] == category:
             serached_event.append(event)
+    
+    return serached_event
 
 def count_appearance(member, platform, event_list):
     count = 0
