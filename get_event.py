@@ -100,18 +100,45 @@ def get_events_member(member):
                     'member': members,
                 }
                 event_list.append(event)
+    
     end_time = time.perf_counter()
     t = end_time - start_time
     print("completed!!({:.2f}s)".format(t))
+    
     return event_list
 
-def get_member_count(member, platform):
+#指定されたカテゴリーでメンバーの出演回数を数えます
+def get_member_count(member, platform, _year, _month):
     start_time = time.perf_counter()
-    today = datetime.now()
-    now_year = today.year
-    now_month = today.month
 
-    count = 
+    count = 0
 
-    end_time = time.perf_counter()
+    month = "{:0=2}".format(
+        int(_month)
+    )
+    events_each_date = scrape.search_event(_year, month)
+    for event_each_date in events_each_date:
+        (
+            _,
+            events_time,
+            events_name,
+            events_category,
+            events_link,
+        ) = scrape.search_event_info(event_each_date)
+        for (event_time, event_name, event_category, event_link) in zip(events_time, events_name, events_category, events_link):
+            (
+                _,
+                _,
+                event_category_text,
+                event_member_text
+            ) = scrape.search_detail_info(event_time, event_name, event_category, event_link)
+            members = get_member_list(event_member_text, member_list)
+            if member in members and event_category_text != "誕生日":
+                if platform == event_category_text:
+                    count += 1
+                elif platform == "all_media":
+                    count += 1
+                end_time = time.perf_counter()
     t = end_time - start_time
+    print("completed!!({:.2f}s)".format(t))
+    return count
