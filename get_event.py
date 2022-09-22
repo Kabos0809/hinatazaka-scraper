@@ -104,3 +104,14 @@ def get_events_member(member):
     t = end_time - start_time
     print("completed!!({:.2f}s)".format(t))
     return event_list
+
+def get_member_count(member, platform):
+    start_time = time.perf_counter()
+    today = datetime.now()
+    now_year = today.year
+    now_month = today.month
+
+    count = 
+
+    end_time = time.perf_counter()
+    t = end_time - start_time

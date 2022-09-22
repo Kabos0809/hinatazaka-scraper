@@ -1,3 +1,5 @@
+from genericpath import isfile
+from logging import error
 import binary_search
 import search_data
 import json
@@ -12,7 +14,7 @@ def json_serial(obj):
 
 month = datetime.now().month
 date = datetime.now().date
-member_count = {"更新日":str(month)+str(date)+"時点", "潮紗理菜":0, "影山優佳":0, "加藤史帆":0, "齋藤京子":0, "佐々木久美":0, "佐々木美玲":0, "高瀬愛奈":0, "高本彩花":0, "東村芽依":0, "金村美玖":0, "河田陽菜":0, "小坂菜緒":0, "富田鈴花":0, "丹生明里":0, "濱岸ひより":0, "松田好花":0, "宮田愛萌":0, "渡邉美穂":0, "上村ひなの":0, "髙橋未来虹":0, "森本茉莉":0, "山口陽世":0}
+#member_count = {"更新日":str(month)+str(date)+"時点", "潮紗理菜":0, "影山優佳":0, "加藤史帆":0, "齋藤京子":0, "佐々木久美":0, "佐々木美玲":0, "高瀬愛奈":0, "高本彩花":0, "東村芽依":0, "金村美玖":0, "河田陽菜":0, "小坂菜緒":0, "富田鈴花":0, "丹生明里":0, "濱岸ひより":0, "松田好花":0, "宮田愛萌":0, "渡邉美穂":0, "上村ひなの":0, "髙橋未来虹":0, "森本茉莉":0, "山口陽世":0}
 
 def event_write_json_file(events):
     today = datetime.now()
@@ -25,7 +27,7 @@ def event_write_json_file(events):
             return
         else:
             json_file = codecs.open(path, mode='r')
-            json_data = json.loads(json_file)
+            json_data = json.load(json_file)
 
             for data in json_data:
                 for event in events:
@@ -40,31 +42,39 @@ def event_write_json_file(events):
             return
     finally:
         json_file.close()
-    
 
-def count_media_write_json_file(events):
+def count_write_json_file(member, platform, count):
     today = datetime.now()
-    path = './json/counts_json/{}_{}_counts.json'.format(today.year, today.month)
+    dir_path = './json/counts_json/{}/{}'.format(platform, member)
+    if not os.path.isfile(dir_path):
+        os.mkdir(dir_path)
+    path = './json//counts_json/{}/{}/{}_{}_{}_{}_count.json'.format(platform, member, member, today.year, today.month, platform)
     try:
+        data = {
+                'year': today.year,
+                'month': today.month,
+                'title': "{}: {}出演回数".format(member, platform),
+                'member': member,
+                'count': count,
+            }
         if not os.path.isfile(path):
             json_file = codecs.open(path, 'w', 'utf-8')
-            for key in member_count.keys():
-                member_count[key] += search_data.count_appearance(key, 4, events)
-            json.dump(member_count, json_file, default=json_serial, ensure_ascii=False, indent=3)
-
-            return
+            json.dump(data, json_file, default=json_serial, ensure_ascii=False, indent=3)
+        
         else:
-            json_file = codecs.open(path, mode='r')
+            json_file = codecs.open(path, 'r', 'utf-8')
             json_data = json.load(json_file)
-            for key in member_count.keys():
-                member_count[key] += search_data.count_appearance(key, 4, events)
-            save_data = [json_data, member_count]
+            new_data = [json_data, data]
+            
+            json_file.close()
+            
             json_file = codecs.open(path, 'w', 'utf-8')
-            json.dump(save_data, json_file, default=json_serial, ensure_ascii=False, indent=3)
+            json.dump(new_data, json_file, ensure_ascii=False, default=json_serial)
 
-            return
     finally:
         json_file.close()
+
+    return
 
 def member_event_write_json_file(member, events):
     today = datetime.now()
