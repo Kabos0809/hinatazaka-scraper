@@ -42,7 +42,7 @@ def event_write_json_file(events):
         json_file.close()
 
 def count_write_json_file(member, platform, count, year, month):
-    path = './json//counts_json/{}/{}_{}_count.json'.format(platform, member, platform)
+    path = './json/counts_json/{}/{}_{}_count.json'.format(platform, member, platform)
     try:
         data = {
                 'year': year,
@@ -52,12 +52,14 @@ def count_write_json_file(member, platform, count, year, month):
                 'count': count,
             }
         if not os.path.isfile(path):
+            data_list = [data]
             json_file = codecs.open(path, 'w', 'utf-8')
-            json.dump(data, json_file, default=json_serial, ensure_ascii=False, indent=3)
+            json.dump(data_list, json_file, default=json_serial, ensure_ascii=False, indent=3)
         
         else:
             json_file = codecs.open(path, 'r', 'utf-8')
             json_data = json.load(json_file)
+            print(type(json_data))
             json_file.close()
             if not check_data_exist.is_data_exist(json_data, data):
                 json_data.append(data)
@@ -77,7 +79,7 @@ def member_event_write_json_file(member, events):
     today = datetime.now()
     dir_path = './json/member/{}'.format(member)
     if not os.path.exists(dir_path):
-        os.mkdir(dir_path)
+        os.makedirs(dir_path)
     path = './json/member/{}/{}_{}_{}_events.json'.format(member, member, today.year, today.month)
     json_file = codecs.open(path, 'w', 'utf-8')
     json.dump(events, json_file, default=json_serial, ensure_ascii=False, indent=3)

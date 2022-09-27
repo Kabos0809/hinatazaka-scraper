@@ -138,7 +138,52 @@ def get_member_count(member, platform, _year, _month):
                     count += 1
                 elif platform == "all_media":
                     count += 1
-                end_time = time.perf_counter()
+    end_time = time.perf_counter()
     t = end_time - start_time
     print("completed!!({:.2f}s)".format(t))
     return count
+
+#指定された期間、指定されたメンバーのカテゴリごとの出演回数を数えます
+def get_count_any_months(term_of_months, start_year, start_month, member, platform):
+    start_time = time.perf_counter()
+    counts = []
+    now_year = start_year
+    now_month = start_month
+    for _ in range(term_of_months):
+        count = 0
+        month = "{:0=2}".format(
+        int(now_month)
+        )
+        events_each_date = scrape.search_event(now_year, month)
+        for event_each_date in events_each_date:
+            (
+                _,
+                events_time,
+                events_name,
+                events_category,
+                events_link
+            ) = scrape.search_event_info(event_each_date)
+            for (event_time, event_name, event_category, event_link) in zip(events_time, events_name, events_category, events_link):
+                (
+                    _,
+                    _,
+                    event_category_text,
+                    event_member_text
+                ) = scrape.search_detail_info(event_time, event_name, event_category, event_link)
+                members = get_member_list(event_member_text, member_list)
+                if member in members and event_category_text != "誕生日":
+                    if platform == event_category_text:
+                        count += 1
+                    elif platform == "all_media":
+                        count += 1
+        counts.append(count)
+
+        now_month += 1
+        if now_month > 12:
+            now_month = 1
+            now_year += 1
+
+    end_time = time.perf_counter()
+    t = end_time - start_time
+    print("completed!!({:.2f}s)".format(t))
+    return counts
