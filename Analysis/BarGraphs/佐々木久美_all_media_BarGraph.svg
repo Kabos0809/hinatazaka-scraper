@@ -7,7 +7,7 @@
   <rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2022-10-11T23:42:30.327982</dc:date>
+    <dc:date>2022-10-12T00:45:01.878794</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -39,7 +39,7 @@ z
 " style="fill:#ffffff;"/>
    </g>
    <g id="patch_3">
-    <path clip-path="url(#pa9f6bbd22a)" d="M 692.181818 2563.2 
+    <path clip-path="url(#pe8461d3779)" d="M 692.181818 2563.2 
 L 3735.818182 2563.2 
 L 3735.818182 900 
 L 692.181818 900 
@@ -52,10 +52,10 @@ z
       <defs>
        <path d="M 0 0 
 L 0 3.5 
-" id="m8a09c5c237" style="stroke:#000000;stroke-width:0.8;"/>
+" id="m316a575dfa" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="2214" xlink:href="#m8a09c5c237" y="2563.2"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="2214" xlink:href="#m316a575dfa" y="2563.2"/>
       </g>
      </g>
      <g id="text_1">
@@ -225,10 +225,10 @@ z
       <defs>
        <path d="M 0 0 
 L -3.5 0 
-" id="m1f6b6d8a51" style="stroke:#000000;stroke-width:0.8;"/>
+" id="m66be003dcf" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="540" xlink:href="#m1f6b6d8a51" y="2563.2"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="540" xlink:href="#m66be003dcf" y="2563.2"/>
       </g>
      </g>
      <g id="text_3">
@@ -241,7 +241,7 @@ L -3.5 0
     <g id="ytick_2">
      <g id="line2d_3">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="540" xlink:href="#m1f6b6d8a51" y="1454.4"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="540" xlink:href="#m66be003dcf" y="1454.4"/>
       </g>
      </g>
      <g id="text_4">
@@ -254,7 +254,7 @@ L -3.5 0
     <g id="ytick_3">
      <g id="line2d_4">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="540" xlink:href="#m1f6b6d8a51" y="345.6"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="540" xlink:href="#m66be003dcf" y="345.6"/>
       </g>
      </g>
      <g id="text_5">
@@ -883,7 +883,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="pa9f6bbd22a">
+  <clipPath id="pe8461d3779">
    <rect height="2217.6" width="3348" x="540" y="345.6"/>
   </clipPath>
  </defs>
