@@ -1,6 +1,7 @@
 from datetime import datetime
 
 import asyncio
+import os
 from matplotlib.pyplot import get
 import get_event
 import search_data
@@ -10,7 +11,7 @@ member_list = ["潮紗理菜", "影山優佳", "加藤史帆", "齊藤京子", "
                 "金村美玖", "河田陽菜", "小坂菜緒", "富田鈴花", "丹生明里", "濱岸ひより", "松田好花", "宮田愛萌", "上村ひなの",
                     "髙橋未来虹", "森本茉莉", "山口陽世"]
 
-async def get_schedule():
+def get_schedule():
     for member in member_list:
         searched_events = get_event.get_events_member(member)
         change_json.member_event_write_json_file(member, searched_events)
@@ -102,8 +103,6 @@ async def m_routine():
 
         if mode == 6:
             exit(1)
-
-    await get_schedule()
 
 l = asyncio.get_event_loop()
 l.run_until_complete(m_routine())
