@@ -31,7 +31,7 @@ def make_histogram(member):
             left.append(index)
 
         y_max = int(max(count)) + 2
-        fig = plt.figure(figsize=(len(count), y_max))
+        fig = plt.figure(figsize=(40, 40), dpi=100)
         ax = fig.add_subplot(111)
         ax.bar(left, count, width=0.8)
         plt.title("{}の出演回数推移".format(member), fontname=font, fontsize=80)
