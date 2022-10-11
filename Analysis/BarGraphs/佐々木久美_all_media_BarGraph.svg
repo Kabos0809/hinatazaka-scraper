@@ -7,7 +7,7 @@
   <rdf:RDF xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2022-10-11T23:11:28.310758</dc:date>
+    <dc:date>2022-10-11T23:26:58.378443</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -39,7 +39,7 @@ z
 " style="fill:#ffffff;"/>
    </g>
    <g id="patch_3">
-    <path clip-path="url(#p37bf71f205)" d="M 11.536364 320.4 
+    <path clip-path="url(#pd1c817624a)" d="M 11.536364 320.4 
 L 62.263636 320.4 
 L 62.263636 112.5 
 L 11.536364 112.5 
@@ -52,15 +52,15 @@ z
       <defs>
        <path d="M 0 0 
 L 0 3.5 
-" id="mf1618f5f6d" style="stroke:#000000;stroke-width:0.8;"/>
+" id="mc89914b493" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="36.9" xlink:href="#mf1618f5f6d" y="320.4"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="36.9" xlink:href="#mc89914b493" y="320.4"/>
       </g>
      </g>
      <g id="text_1">
       <!-- '22-10 -->
-      <g transform="translate(20.996875 334.998438)scale(0.1 -0.1)">
+      <g transform="translate(-2.857812 346.396094)scale(0.25 -0.25)">
        <defs>
         <path d="M 17.921875 72.90625 
 L 17.921875 45.796875 
@@ -144,7 +144,7 @@ z
     </g>
     <g id="text_2">
      <!-- 年-月 -->
-     <g transform="translate(24.4 348.773438)scale(0.1 -0.1)">
+     <g transform="translate(-38.1 401.767187)scale(0.6 -0.6)">
       <defs>
        <path d="M 31.25 60.9375 
 Q 23.828125 48.046875 12.890625 39.453125 
@@ -225,15 +225,15 @@ z
       <defs>
        <path d="M 0 0 
 L -3.5 0 
-" id="m26a7d80ee6" style="stroke:#000000;stroke-width:0.8;"/>
+" id="mf98eff73ab" style="stroke:#000000;stroke-width:0.8;"/>
       </defs>
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="9" xlink:href="#m26a7d80ee6" y="320.4"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="9" xlink:href="#mf98eff73ab" y="320.4"/>
       </g>
      </g>
      <g id="text_3">
       <!-- 0 -->
-      <g transform="translate(-4.3625 324.199219)scale(0.1 -0.1)">
+      <g transform="translate(-17.0875 331.797656)scale(0.3 -0.3)">
        <use xlink:href="#DejaVuSans-48"/>
       </g>
      </g>
@@ -241,12 +241,12 @@ L -3.5 0
     <g id="ytick_2">
      <g id="line2d_3">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="9" xlink:href="#m26a7d80ee6" y="181.8"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="9" xlink:href="#mf98eff73ab" y="181.8"/>
       </g>
      </g>
      <g id="text_4">
       <!-- 2 -->
-      <g transform="translate(-4.3625 185.599219)scale(0.1 -0.1)">
+      <g transform="translate(-17.0875 193.197656)scale(0.3 -0.3)">
        <use xlink:href="#DejaVuSans-50"/>
       </g>
      </g>
@@ -254,12 +254,12 @@ L -3.5 0
     <g id="ytick_3">
      <g id="line2d_4">
       <g>
-       <use style="stroke:#000000;stroke-width:0.8;" x="9" xlink:href="#m26a7d80ee6" y="43.2"/>
+       <use style="stroke:#000000;stroke-width:0.8;" x="9" xlink:href="#mf98eff73ab" y="43.2"/>
       </g>
      </g>
      <g id="text_5">
       <!-- 4 -->
-      <g transform="translate(-4.3625 46.999219)scale(0.1 -0.1)">
+      <g transform="translate(-17.0875 54.597656)scale(0.3 -0.3)">
        <defs>
         <path d="M 37.796875 64.3125 
 L 12.890625 25.390625 
@@ -285,7 +285,7 @@ z
     </g>
     <g id="text_6">
      <!-- 出演回数 -->
-     <g transform="translate(-9.651563 201.8)rotate(-90)scale(0.1 -0.1)">
+     <g transform="translate(-28.821875 301.8)rotate(-90)scale(0.6 -0.6)">
       <defs>
        <path d="M 22.265625 70.703125 
 Q 25.390625 70.3125 22.65625 68.359375 
@@ -546,7 +546,7 @@ L 64.8 43.2
    </g>
    <g id="text_7">
     <!-- 佐々木久美の出演回数推移 -->
-    <g transform="translate(-35.1 37.2)scale(0.12 -0.12)">
+    <g transform="translate(-443.1 32.8875)scale(0.8 -0.8)">
      <defs>
       <path d="M 26.953125 14.453125 
 Q 45.703125 32.421875 49.609375 53.125 
@@ -883,7 +883,7 @@ z
   </g>
  </g>
  <defs>
-  <clipPath id="p37bf71f205">
+  <clipPath id="pd1c817624a">
    <rect height="277.2" width="55.8" x="9" y="43.2"/>
   </clipPath>
  </defs>
