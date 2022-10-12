@@ -17,7 +17,7 @@ def make_bargraph(member):
         data = json.load(fp)
 
         index = 0
-        left = []
+        x = []
         count = []
         year_months = [] #yyyy-mm
 
@@ -28,16 +28,16 @@ def make_bargraph(member):
 
         for _ in range(len(count)):
             index += 1
-            left.append(index)
+            x.append(index)
 
         y_max = int(max(count)) + 2
         fig = plt.figure(figsize=(60, 40), dpi=100)
         ax = fig.add_subplot(111)
-        ax.bar(left, count, width=0.8)
-        plt.title("{}の出演回数推移".format(member), fontname=font, fontsize=80)
+        ax.bar(x, count, width=0.8)
+        plt.title("{}の月別出演回数".format(member), fontname=font, fontsize=80)
         plt.xlabel("年-月", fontname=font, fontsize=60)
         plt.ylabel("出演回数", fontname=font, fontsize=60)
-        plt.xticks(left[0:], year_months, fontsize=25)
+        plt.xticks(x[0:], year_months, fontsize=25)
         plt.yticks(np.arange(0, y_max, 2), fontsize=30)
         plt.savefig("BarGraphs/{}_all_media_BarGraph.svg".format(member))
 
