@@ -19,7 +19,7 @@ def make_bargraph(member):
         index = 0
         x = []
         count = []
-        year_months = [] #yyyy-mm
+        year_months = [] #yy-mm
 
         for d in data:
             s = "'" + str(d["year"]-2000) + "-" + str(d["month"])
