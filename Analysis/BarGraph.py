@@ -30,7 +30,6 @@ def make_bargraph(member):
             index += 1
             x.append(index)
 
-        y_max = int(max(count)) + 2
         fig = plt.figure(figsize=(60, 40), dpi=100)
         ax = fig.add_subplot(111)
         ax.bar(x, count, width=0.8)
@@ -38,13 +37,15 @@ def make_bargraph(member):
         plt.xlabel("年-月", fontname=font, fontsize=60)
         plt.ylabel("出演回数", fontname=font, fontsize=60)
         plt.xticks(x[0:], year_months, fontsize=25)
-        plt.yticks(np.arange(0, y_max, 2), fontsize=30)
-        plt.savefig("BarGraphs/{}_all_media_BarGraph.svg".format(member))
+        plt.yticks(np.arange(0, 40, 2), fontsize=30)
+        plt.savefig("BarGraphs/svg/{}_all_media_BarGraph.svg".format(member))
+        plt.savefig("BarGraphs/png/{}_all_media_BarGraph.png".format(member))
 
         fp.close()
     except:
         return
-    
+    finally:
+        plt.close()
     return
 
 for member in member_list:

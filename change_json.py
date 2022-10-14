@@ -59,11 +59,13 @@ def count_write_json_file(member, platform, count, year, month):
         else:
             json_file = codecs.open(path, 'r', 'utf-8')
             json_data = json.load(json_file)
-            print(type(json_data))
             json_file.close()
-            if not check_data_exist.is_data_exist(json_data, data):
-                json_data.append(data)
-
+            exist, i = check_data_exist.is_data_exist(json_data, data)
+            if not exist:
+                if i == -1:
+                    json_data.append(data)
+                else:
+                    json_data[i] = data
                 new_data = sorted(json_data, key=lambda new_data: (new_data['year'], new_data['month']))
 
                 json_file = codecs.open(path, 'w', 'utf-8')
