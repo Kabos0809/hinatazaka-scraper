@@ -32,4 +32,24 @@ def get_all_count():
                     month = 1
                     year += 1
 
+#def get_all_schedule():
+#    schedules = get_schedules(44, 2019, 3)
+#
+#    for member in member_list:
+#        year = 2019
+#        month = 3
+#        event_of_month = []
+#        
+#        for schedule in schedules:
+#            s = []
+#            for event in schedule:
+#                if member in event["member"]:
+#                    s.append(event)
+#            event_of_month.append(s)
+#        
+#        for schedule in event_of_month:
+#            
+
+
+
 get_all_count()

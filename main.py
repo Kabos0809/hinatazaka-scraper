@@ -14,7 +14,7 @@ member_list = ["潮紗理菜", "影山優佳", "加藤史帆", "齊藤京子", "
 async def get_schedule():
     for member in member_list:
         searched_events = await get_event.get_events_member(member)
-        change_json.member_event_write_json_file(member, searched_events)
+        change_json.event.member_event_write_json_file(member, searched_events)
 
 async def m_routine():
     while 1:
@@ -42,7 +42,7 @@ async def m_routine():
             elif platform == "雑誌":
                 platform = "magazine"
 
-            change_json.count_write_json_file(member, platform, count, today.year, today.month)
+            change_json.count.count_write_json_file(member, platform, count, today.year, today.month)
 
         if mode == 3:
             member = input("検索するメンバー: ")
@@ -67,7 +67,7 @@ async def m_routine():
             elif platform == "雑誌":
                 platform = "magazine"
 
-            change_json.count_write_json_file(member, platform, count, year, month)
+            change_json.count.count_write_json_file(member, platform, count, year, month)
         if mode == 4:
             member = input("検索するメンバー: ")
             year = int(input("スタートの年(西暦): "))
@@ -94,7 +94,7 @@ async def m_routine():
                 platform = "magazine"
 
             for count in counts:
-                change_json.count_write_json_file(member, platform, count, year, month)
+                change_json.count.count_write_json_file(member, platform, count, year, month)
                 month += 1
                 if month > 12:
                     month = 1
