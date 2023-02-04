@@ -88,7 +88,7 @@ class count():
                     json_file = codecs.open(path, 'w', 'utf-8')
                     json.dump(new_data, json_file, ensure_ascii=False, default=json_serial, indent=3)
                 else:
-                    return print("同様のデータが存在しています.")
+                    return
         finally:
             json_file.close()
 
