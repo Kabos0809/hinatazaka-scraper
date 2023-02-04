@@ -1,5 +1,4 @@
 from datetime import datetime
-from unicodedata import category
 import scrape
 import time
 
@@ -16,7 +15,7 @@ def get_member_list(event_member_text, member_list):
     return got_member_list
 
 #指定された期間のスケジュールをすべて取得します
-async def get_events_any_months(term_of_months):
+def get_events_any_months(term_of_months):
     start_time = time.perf_counter()
     event_list = []
     now_year = datetime.now().year
@@ -64,7 +63,7 @@ async def get_events_any_months(term_of_months):
     return event_list
 
 #指定されたメンバーの１か月間のスケジュールを取得します
-async def get_events_member(member):
+def get_events_member(member):
     start_time = time.perf_counter()
     event_list = []
     now_year = datetime.now().year
@@ -108,7 +107,7 @@ async def get_events_member(member):
     return event_list
 
 #指定されたカテゴリーでメンバーの出演回数を数えます
-async def get_member_count(member, platform, _year, _month):
+def get_member_count(member, platform, _year, _month):
     start_time = time.perf_counter()
 
     count = 0
@@ -144,7 +143,7 @@ async def get_member_count(member, platform, _year, _month):
     return count
 
 #指定された期間、指定されたメンバーのカテゴリごとの出演回数を数えます
-async def get_count_any_months(term_of_months, start_year, start_month, member, platform):
+def get_count_any_months(term_of_months, start_year, start_month, member, platform):
     start_time = time.perf_counter()
     counts = []
     now_year = start_year
