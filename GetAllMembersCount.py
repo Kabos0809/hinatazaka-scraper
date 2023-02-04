@@ -11,31 +11,22 @@ start = dt(2019, 3, 1)
 now = dt.now()
 month_sub = abs(start.year - now.year)*12 + abs(start.month - now.month)
 
+schedules = get_schedules(month_sub, 2019, 3)
 
-def get_all_count():
-    schedules = get_schedules(month_sub, 2019, 3)
-    
-    for member in member_list:
-        p = "./json/counts_json/all_media/{}_all_media_count.json".format(member)
-        if os.path.isfile(p):
-            continue
-        else:
-            year = 2019
-            month = 3
-            counts = []
+for member in member_list:
+    year = 2019
+    month = 3
+    counts = []
+    for schedule in schedules:
+        c = 0
+        for event in schedule:
+            if member in event["member"]:
+                c += 1
+        counts.append(c)
+    for count in counts:
+        cnt.count_write_json_file(member, "all_media", count, year, month)
+        month += 1
+        if month > 12:
+            month = 1
+            year += 1
 
-            for schedule in schedules:
-                c = 0
-                for event in schedule:
-                    if member in event["member"]:
-                        c += 1
-                counts.append(c)
-
-            for count in counts:
-                cnt.count_write_json_file(member, "all_media", count, year, month)
-                month += 1
-                if month > 12:
-                    month = 1
-                    year += 1
-
-get_all_count()
