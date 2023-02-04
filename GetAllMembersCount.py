@@ -1,5 +1,5 @@
 from get_event import get_schedules
-from change_json import count_write_json_file
+from change_json import count as cnt
 import os
 
 member_list = ["潮紗理菜", "影山優佳", "加藤史帆", "齊藤京子", "佐々木久美", "佐々木美玲", "高瀬愛奈", "高本彩花", "東村芽依", 
@@ -26,30 +26,10 @@ def get_all_count():
                 counts.append(c)
 
             for count in counts:
-                count_write_json_file(member, "all_media", count, year, month)
+                cnt.count_write_json_file(member, "all_media", count, year, month)
                 month += 1
                 if month > 12:
                     month = 1
                     year += 1
-
-#def get_all_schedule():
-#    schedules = get_schedules(44, 2019, 3)
-#
-#    for member in member_list:
-#        year = 2019
-#        month = 3
-#        event_of_month = []
-#        
-#        for schedule in schedules:
-#            s = []
-#            for event in schedule:
-#                if member in event["member"]:
-#                    s.append(event)
-#            event_of_month.append(s)
-#        
-#        for schedule in event_of_month:
-#            
-
-
 
 get_all_count()
