@@ -1,3 +1,4 @@
+from datetime import datetime as dt
 from get_event import get_schedules
 from change_json import count as cnt
 import os
@@ -6,8 +7,13 @@ member_list = ["潮紗理菜", "影山優佳", "加藤史帆", "齊藤京子", "
                 "金村美玖", "河田陽菜", "小坂菜緒", "富田鈴花", "丹生明里", "濱岸ひより", "松田好花", "宮田愛萌", "上村ひなの",
                     "髙橋未来虹", "森本茉莉", "山口陽世"]
 
+start = dt(2019, 3, 1)
+now = dt.now()
+month_sub = abs(start.year - now.year)*12 + abs(start.month - now.month)
+
+
 def get_all_count():
-    schedules = get_schedules(44, 2019, 3)
+    schedules = get_schedules(month_sub, 2019, 3)
     
     for member in member_list:
         p = "./json/counts_json/all_media/{}_all_media_count.json".format(member)
