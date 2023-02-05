@@ -89,7 +89,5 @@ def make_any_plots():
     plt.savefig("Any_plots/png/{}_members_plot.png".format(name))
     plt.close()
     
-#make_plot()
-make_any_plots()
-
+make_plot()
     
